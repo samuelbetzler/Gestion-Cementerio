@@ -53,9 +53,10 @@ INSTALLED_APPS = [
     'Certificados',
     'Pagos',
     'Incidentes',
+    'sqlscripts',
     'Generator',
     'DBrestorer',
-    'sqlscripts',
+    
 ]
 
 MIDDLEWARE = [
