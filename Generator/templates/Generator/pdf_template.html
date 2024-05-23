@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Reporte PDF</title>
+  </head>
+  <body>
+    {% if 'clientes' in sections %}
+    <h2>Clientes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Ubicación</th>
+          <th>CI Cliente</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Teléfono 1</th>
+          <th>Teléfono 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cliente in clientes %}
+        <tr>
+          <td>{{ cliente.id_ubi }}</td>
+          <td>{{ cliente.ci_clien }}</td>
+          <td>{{ cliente.name_clien }}</td>
+          <td>{{ cliente.lname_clien }}</td>
+          <td>{{ cliente.fch_naci_clien }}</td>
+          <td>{{ cliente.tel1_clien }}</td>
+          <td>{{ cliente.tel2_clien }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+    
+    {% if 'difuntos' in sections %}
+    <h2>Difuntos</h2>
+    <table>
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Fecha de Muerte</th>
+      <th>Causa de Muerte</th>
+      <th>Código del Acta</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for difunto in difuntos %}
+    <tr>
+      <td>{{ difunto.name_difu }}</td>
+      <td>{{ difunto.lastn_difu }}</td>
+      <td>{{ difunto.fch_naci_difu }}</td>
+      <td>{{ difunto.fch_muerte_difu }}</td>
+      <td>{{ difunto.id_cau_mue.name_cau_mue }}</td>
+      <td>{{ difunto.code_acta_difu }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+
+    {% if 'personal' in sections %}
+    <h2>Personal</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>CI</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Teléfono 1</th>
+          <th>Teléfono 2</th>
+          <th>Tipo de Personal</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for personal in personal %}
+        <tr>
+          <td>{{ personal.ci_per }}</td>
+          <td>{{ personal.name_per }}</td>
+          <td>{{ personal.lname_per }}</td>
+          <td>{{ personal.fch_naci_per }}</td>
+          <td>{{ personal.tel1_per }}</td>
+          <td>{{ personal.tel2_per }}</td>
+          <td>{{ personal.id_tipo_per.name_tipo_per }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+
+    {% if 'estructuras' in sections %}
+    <h2>Estructuras</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Zona</th>
+          <th>Manzana</th>
+          <th>Tipo de Estructura</th>
+          <th>Estado de Estructura</th>
+          <th>Cruces</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for estructura in estructuras %}
+        <tr>
+          <td>{{ estructura.id }}</td>
+          <td>{{ estructura.id_lugar_estruc.name_zona }}</td>
+          <td>{{ estructura.id_lugar_estruc.name_manza }}</td>
+          <td>{{ estructura.id_tipo_estruc.name_tipo_estruc }}</td>
+          <td>{{ estructura.id_est_estruc.name_est_estruc }}</td>
+          <td>{{ estructura.cruces }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+{% if 'ubicaciones' in sections %}
+<h2>Ubicaciones</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Provincia</th>
+      <th>Canton</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ubicacion in ubicaciones %}
+    <tr>
+      <td>{{ ubicacion.id }}</td>
+      <td>{{ ubicacion.id_pro.name_pro }}</td>
+      <td>{{ ubicacion.id_can.name_can }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+
+{% if 'certificados' in sections %}
+    <h2>Certificados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Trámite</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for certificado in certificados %}
+        <tr>
+          <td>{{ certificado.id }}</td>
+          <td>{{ certificado.id_tram }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+
+    {% if 'pagos' in sections %}
+    <h2>Pagos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de Pago</th>
+          <th>Trámite</th>
+          <th>Cantidad de Pago</th>
+          <th>Fecha de Pago</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pago in pagos %}
+        <tr>
+          <td>{{ pago.id_tipo_pago.name_tipo_pago }}</td>
+          <td>{{ pago.id_tram }}</td> <!-- Ajusta según cómo quieras mostrar el trámite -->
+          <td>{{ pago.cant_pago }}</td>
+          <td>{{ pago.fch_pago }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %} 
+    
+    {% if 'incidentes' in sections %}
+    <h2>Incidentes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de Incidente</th>
+          <th>Personal</th>
+          <th>Fecha de Reporte</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for incidente in incidentes %}
+        <tr>
+          <td>{{ incidente.id_tipo_inci.name_tipo_inci }}</td>
+          <td>{{ incidente.id_per }}</td> 
+          <td>{{ incidente.fch_rep_inc }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </body>
+</html>

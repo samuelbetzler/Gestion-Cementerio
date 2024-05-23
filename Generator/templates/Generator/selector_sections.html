@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Selector de Secciones</title>
+  </head>
+  <body>
+    <h1>Seleccione las secciones para el reporte</h1>
+    <form method="post" action="{% url 'generar_reporte' %}">
+      {% csrf_token %}
+      {% for entidad in entidades %}
+        <div>
+          <input type="checkbox" id="{{ entidad }}" name="sections" value="{{ entidad }}">
+          <label for="{{ entidad }}">{{ entidad|capfirst }}</label>
+        </div>
+      {% endfor %}
+      <button type="submit">Generar Reporte</button>
+    </form>
+  </body>
+</html>

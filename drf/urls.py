@@ -29,4 +29,7 @@ urlpatterns = [
     path('api/', include('Personal.urls')),
     path('api/', include('Ubicaciones.urls')),
     path('docs/', include_docs_urls(title='API Documentation')),
+    path('dbrestorer/', include('DBrestorer.urls')),
+    path('generar_reporte/', include('Generator.urls')),
+    path('sqlscripts/', include('sqlscripts.urls')),
 ]

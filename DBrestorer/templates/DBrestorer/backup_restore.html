@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backup and Restore</title>
+</head>
+<body>
+    <h1>Backup and Restore Database</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    {% if backup_file %}
+        <h2>Backup completed successfully. <a href="{% url 'download_backup' backup_file %}">Download backup</a></h2>
+    {% endif %}
+</body>
+</html>

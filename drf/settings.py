@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'coreapi',
-    'dbbackup', 
+    'dbbackup',
+    'xhtml2pdf',
+    'io',
+    'django.template.loader',
+    'weasyprint',
     'django_apscheduler',
     'Clientes',
     'Difuntos',
@@ -49,6 +53,9 @@ INSTALLED_APPS = [
     'Certificados',
     'Pagos',
     'Incidentes',
+    'Generator',
+    'DBrestorer',
+    'sqlscripts',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +74,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
+        
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,8 +146,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
 REST_FRAMEWORK = {
-    
+
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 }
