@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logs de Auditoría</title>
+</head>
+<body>
+    <h1>Logs de Auditoría</h1>
+    <ul>
+        {% for log in logs %}
+            <li>{{ log.changed_at }}: {{ log.table_name }} - {{ log.operation }} - {{ log.old_data }} - {{ log.new_data }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

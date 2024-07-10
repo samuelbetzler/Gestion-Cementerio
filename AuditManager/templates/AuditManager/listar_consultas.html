@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Consultas</title>
+</head>
+<body>
+    <h1>Historial de Consultas</h1>
+    <ul>
+        {% for consulta in consultas %}
+            <li>{{ consulta.executed_at }}: {{ consulta.query_sql }} - {{ consulta.result }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
