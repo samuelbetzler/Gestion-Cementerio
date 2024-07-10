@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'xhtml2pdf',
     'io',
     'django.template.loader',
-    'weasyprint',
     'django_apscheduler',
     'Clientes',
     'Difuntos',
@@ -56,7 +55,7 @@ INSTALLED_APPS = [
     'sqlscripts',
     'Generator',
     'DBrestorer',
-    
+    'AuditManager',
 ]
 
 MIDDLEWARE = [

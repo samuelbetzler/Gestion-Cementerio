@@ -32,4 +32,5 @@ urlpatterns = [
     path('dbrestorer/', include('DBrestorer.urls')),
     path('generar_reporte/', include('Generator.urls')),
     path('sqlscripts/', include('sqlscripts.urls')),
+    path('auditmanager/', include('AuditManager.urls')),
 ]
